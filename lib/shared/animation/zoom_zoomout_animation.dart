@@ -6,18 +6,34 @@ import 'package:flutter/material.dart';
 
 class ZoomZoomoutAnimation extends StatefulWidget {
   final Widget child;
-  const ZoomZoomoutAnimation({super.key, required this.child});
+  final VoidCallback? initState;
+  const ZoomZoomoutAnimation({super.key, required this.child, this.initState});
 
   @override
   State<ZoomZoomoutAnimation> createState() => _ZoomZoomoutAnimationState();
 }
 
 class _ZoomZoomoutAnimationState extends State<ZoomZoomoutAnimation> {
-  ValueNotifier<bool> isZoomedIn = ValueNotifier<bool>(true);
+  ValueNotifier<bool> isZoomedIn = ValueNotifier<bool>(false);
   Timer? _timer;
   void _startTimer() {
-    _timer = Timer(const Duration(milliseconds: 400), () {
-      isZoomedIn.value = !isZoomedIn.value;
+    (widget.initState != null) ? widget.initState!() : null;
+    _timer = Timer(const Duration(milliseconds: 400), () async {
+      await Future.delayed(const Duration(milliseconds: 100), () {
+        isZoomedIn.value = true;
+      });
+      await Future.delayed(const Duration(milliseconds: 100), () {
+        isZoomedIn.value = false;
+      });
+      await Future.delayed(const Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 100), () {
+        isZoomedIn.value = true;
+      });
+      await Future.delayed(const Duration(milliseconds: 100), () {
+        isZoomedIn.value = false;
+      });
+      await Future.delayed(const Duration(milliseconds: 300));
+
       _startTimer();
     });
   }
@@ -34,9 +50,9 @@ class _ZoomZoomoutAnimationState extends State<ZoomZoomoutAnimation> {
       valueListenable: isZoomedIn,
       builder: (context, value, child) {
         return AnimatedScale(
-          duration: Duration(milliseconds: 400),
+          duration: Duration(milliseconds: 70),
           scale: value ? 1.0 : 0.8,
-          curve: Curves.easeIn,
+
           child: child,
         );
       },
@@ -52,5 +68,6 @@ class _ZoomZoomoutAnimationState extends State<ZoomZoomoutAnimation> {
 }
 
 extension ZoomZoomoutAnimationExtension on Widget {
-  Widget get zoomZoomoutAnimation => ZoomZoomoutAnimation(child: this);
+  Widget zoomZoomoutAnimation({VoidCallback? initState}) =>
+      ZoomZoomoutAnimation(initState: initState, child: this);
 }
