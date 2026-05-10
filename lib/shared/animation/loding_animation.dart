@@ -1,83 +1,144 @@
-// ignore_for_file: unused_element, unused_field
-
-import 'dart:async'; // এটা ঠিক
-
+import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
-class LodingAnimation extends StatefulWidget {
-  const LodingAnimation({super.key});
+class LoadingAnimation extends StatefulWidget {
+  const LoadingAnimation({super.key});
 
   @override
-  State<LodingAnimation> createState() => _LodingAnimationState();
+  State<LoadingAnimation> createState() => _LoadingAnimationState();
 }
 
-class _LodingAnimationState extends State<LodingAnimation> {
-  //show
-  ValueNotifier<bool> isFirstDothide = ValueNotifier<bool>(true);
-  ValueNotifier<bool> fastDotBackhide = ValueNotifier<bool>(false);
-  ValueNotifier<bool> isSecondDothide = ValueNotifier<bool>(false);
-  ValueNotifier<bool> secondDotBackhide = ValueNotifier<bool>(false);
-  ValueNotifier<bool> isLastDothide = ValueNotifier<bool>(false);
-  ValueNotifier<bool> lastDotBackhide = ValueNotifier<bool>(false);
+class _LoadingAnimationState extends State<LoadingAnimation> {
+  bool _isContinue = true;
 
-  //animation
-  ValueNotifier<bool> fastTosecond = ValueNotifier<bool>(false);
-  ValueNotifier<bool> fastTosecond2 = ValueNotifier<bool>(false);
-  ValueNotifier<bool> secondTolast = ValueNotifier<bool>(false);
-  ValueNotifier<bool> secondTolast2 = ValueNotifier<bool>(false);
-  ValueNotifier<bool> lastTofast = ValueNotifier<bool>(false);
-  ValueNotifier<bool> lastTofast2 = ValueNotifier<bool>(false);
+  // show notifiers
+  final ValueNotifier<bool> isFirstDotShow = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> fastDotBackShow = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> isSecondDotShow = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> secondDotBackShow = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> isLastDotShow = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> lastDotBackShow = ValueNotifier<bool>(false);
 
-  Timer? _timer;
+  // animation notifiers
+  final ValueNotifier<bool> fastTosecond = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> fastTosecond2 = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> secondTolast = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> secondTolast2 = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> lastTofast = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> lastTofast2 = ValueNotifier<bool>(false);
 
-  void _startTimer() {
-    _timer = Timer(const Duration(milliseconds: 00), () async {
-      if (!isFirstDothide.value) isFirstDothide.value = true;
-      await Future.delayed(Duration(milliseconds: 1000));
+  Future<void> _runLoop() async {
+    while (mounted && _isContinue) {
+      isFirstDotShow.value = true;
+
+      await Future.delayed(const Duration(milliseconds: 650));
+      if (!mounted) return;
       fastTosecond.value = true;
-      await Future.delayed(Duration(milliseconds: 300));
-      fastDotBackhide.value = true;
-      isFirstDothide.value = false;
+
+      await Future.delayed(const Duration(milliseconds: 200));
+      if (!mounted) return;
+      fastDotBackShow.value = true;
+      isFirstDotShow.value = false;
       fastTosecond.value = false;
-      await Future.delayed(Duration(milliseconds: 1000));
+
+      await Future.delayed(const Duration(milliseconds: 650));
+      if (!mounted) return;
       fastTosecond2.value = true;
-      await Future.delayed(Duration(milliseconds: 300));
-      isSecondDothide.value = true;
-      fastDotBackhide.value = false;
+
+      await Future.delayed(const Duration(milliseconds: 200));
+      if (!mounted) return;
+      isSecondDotShow.value = true;
+      fastDotBackShow.value = false;
       fastTosecond2.value = false;
 
-      await Future.delayed(Duration(milliseconds: 1000));
+      await Future.delayed(const Duration(milliseconds: 650));
+      if (!mounted) return;
       secondTolast.value = true;
-      await Future.delayed(Duration(milliseconds: 300));
-      secondDotBackhide.value = true;
-      isSecondDothide.value = false;
-      secondTolast.value = false;
-      await Future.delayed(Duration(milliseconds: 1000));
-      secondTolast2.value = true;
-      await Future.delayed(Duration(milliseconds: 300));
-      isLastDothide.value = true;
-      secondDotBackhide.value = false;
-      secondTolast2.value = false;
-      await Future.delayed(Duration(milliseconds: 1000));
-      lastTofast.value = true;
-      await Future.delayed(Duration(milliseconds: 300));
-      lastDotBackhide.value = true;
-      isLastDothide.value = false;
-      lastTofast.value = false;
-      await Future.delayed(Duration(milliseconds: 1000));
-      lastTofast2.value = true;
-      await Future.delayed(Duration(milliseconds: 300));
-      lastDotBackhide.value = false;
-      lastTofast2.value = false;
-      isFirstDothide.value = true;
-      await Future.delayed(Duration(milliseconds: 1000));
 
-      _startTimer();
-    });
+      await Future.delayed(const Duration(milliseconds: 200));
+      if (!mounted) return;
+      secondDotBackShow.value = true;
+      isSecondDotShow.value = false;
+      secondTolast.value = false;
+
+      await Future.delayed(const Duration(milliseconds: 650));
+      if (!mounted) return;
+      secondTolast2.value = true;
+
+      await Future.delayed(const Duration(milliseconds: 200));
+      if (!mounted) return;
+      isLastDotShow.value = true;
+      secondDotBackShow.value = false;
+      secondTolast2.value = false;
+
+      await Future.delayed(const Duration(milliseconds: 650));
+      if (!mounted) return;
+      lastTofast.value = true;
+
+      await Future.delayed(const Duration(milliseconds: 200));
+      if (!mounted) return;
+      lastDotBackShow.value = true;
+      isLastDotShow.value = false;
+      lastTofast.value = false;
+
+      await Future.delayed(const Duration(milliseconds: 650));
+      if (!mounted) return;
+      lastTofast2.value = true;
+
+      await Future.delayed(const Duration(milliseconds: 200));
+      if (!mounted) return;
+      isFirstDotShow.value = true;
+      lastDotBackShow.value = false;
+      lastTofast2.value = false;
+    }
+  }
+
+  Widget _buildAnimatedDot({
+    required ValueNotifier<bool> showNotifier,
+    required ValueNotifier<bool> animNotifier,
+    required double? left,
+    required double? right,
+    required double expandedWidth,
+    bool reverse = false,
+  }) {
+    return ListenableBuilder(
+      listenable: Listenable.merge([showNotifier, animNotifier]),
+      builder: (context, _) {
+        final isAnimating = animNotifier.value;
+        final dotWidth = reverse
+            ? (isAnimating ? 20.0 : expandedWidth)
+            : (isAnimating ? expandedWidth : 20.0);
+
+        return Positioned(
+          left: left,
+          right: right,
+          child: showNotifier.value
+              ? AnimatedContainer(
+                  duration: const Duration(milliseconds: 180),
+                  width: dotWidth,
+                  height: 20,
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: ThemeColors.surface,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  ),
+                )
+              : const SizedBox(),
+        );
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _runLoop();
   }
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Stack(
       children: [
         Row(
@@ -89,206 +150,62 @@ class _LodingAnimationState extends State<LodingAnimation> {
               height: 20,
               margin: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: ThemeColors.secondary,
                 shape: BoxShape.circle,
               ),
             ),
           ),
         ),
 
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-
-        // fast dot to second dot Positioned
-        ValueListenableBuilder(
-          valueListenable: isFirstDothide,
-          builder: (context, fast, child) {
-            return ValueListenableBuilder(
-              valueListenable: fastTosecond,
-              builder: (context, fts, child) {
-                return Positioned(
-                  /// fast dot position is 136.3
-                  /// second dot position is 176.3
-                  /// last dot position is 216.3
-                  left: 136.3,
-                  child: fast
-                      ? AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-
-                          /// fast dot width is 60
-                          /// second dot width is 20
-                          /// last dot width is 20
-                          width: fts ? 60 : 20,
-                          height: 20,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        )
-                      : SizedBox(),
-                );
-              },
-            );
-          },
-        ),
-        ValueListenableBuilder(
-          valueListenable: fastDotBackhide,
-          builder: (context, fdb, child) {
-            return ValueListenableBuilder(
-              valueListenable: fastTosecond2,
-              builder: (context, fts2, child) {
-                return Positioned(
-                  /// fast dot position is 136.3
-                  /// second dot position is 176.3
-                  /// last dot position is 216.3
-                  right: 176.3,
-                  child: fdb
-                      ? AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-
-                          /// fast dot width is 60
-                          /// second dot width is 20
-                          /// last dot width is 20
-                          width: fts2 ? 20 : 60,
-                          height: 20,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        )
-                      : SizedBox(),
-                );
-              },
-            );
-          },
+        _buildAnimatedDot(
+          showNotifier: isFirstDotShow,
+          animNotifier: fastTosecond,
+          left: width * 0.354,
+          right: null,
+          expandedWidth: 60,
         ),
 
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-
-        // second dot to last dot Positioned
-        ValueListenableBuilder(
-          valueListenable: isSecondDothide,
-          builder: (context, sd, child) {
-            return ValueListenableBuilder(
-              valueListenable: secondTolast,
-              builder: (context, stl, child) {
-                return Positioned(
-                  left: 176.3,
-                  child: sd
-                      ? AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          width: stl ? 60 : 20,
-                          height: 20,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        )
-                      : SizedBox(),
-                );
-              },
-            );
-          },
-        ),
-        ValueListenableBuilder(
-          valueListenable: secondDotBackhide,
-          builder: (context, sdb, child) {
-            return ValueListenableBuilder(
-              valueListenable: secondTolast2,
-              builder: (context, stl2, child) {
-                return Positioned(
-                  right: 136.3,
-                  child: sdb
-                      ? AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          width: stl2 ? 20 : 60,
-                          height: 20,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        )
-                      : SizedBox(),
-                );
-              },
-            );
-          },
+        _buildAnimatedDot(
+          showNotifier: fastDotBackShow,
+          animNotifier: fastTosecond2,
+          left: null,
+          right: width * 0.451,
+          expandedWidth: 60,
+          reverse: true,
         ),
 
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-
-        // last dot to first dot Positioned
-        ValueListenableBuilder(
-          valueListenable: isLastDothide,
-          builder: (context, ld, child) {
-            return ValueListenableBuilder(
-              valueListenable: lastTofast,
-              builder: (context, stf, child) {
-                return Positioned(
-                  left: 176.3,
-                  child: ld
-                      ? AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          width: stf ? 90 : 20,
-                          height: 20,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        )
-                      : SizedBox(),
-                );
-              },
-            );
-          },
+        _buildAnimatedDot(
+          showNotifier: isSecondDotShow,
+          animNotifier: secondTolast,
+          left: width * 0.451,
+          right: null,
+          expandedWidth: 60,
         ),
-        ValueListenableBuilder(
-          valueListenable: lastDotBackhide,
-          builder: (context, ldb, child) {
-            return ValueListenableBuilder(
-              valueListenable: lastTofast2,
-              builder: (context, ltf2, child) {
-                return Positioned(
-                  right: 136.3,
-                  child: ldb
-                      ? AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          width: ltf2 ? 20 : 100,
-                          height: 20,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                        )
-                      : SizedBox(),
-                );
-              },
-            );
-          },
+
+        _buildAnimatedDot(
+          showNotifier: secondDotBackShow,
+          animNotifier: secondTolast2,
+          left: null,
+          right: width * 0.354,
+          expandedWidth: 60,
+          reverse: true,
+        ),
+
+        _buildAnimatedDot(
+          showNotifier: isLastDotShow,
+          animNotifier: lastTofast,
+          left: null,
+          right: width * 0.354,
+          expandedWidth: 100,
+        ),
+
+        _buildAnimatedDot(
+          showNotifier: lastDotBackShow,
+          animNotifier: lastTofast2,
+          left: width * 0.354,
+          right: null,
+          expandedWidth: 100,
+          reverse: true,
         ),
       ],
     );
@@ -296,13 +213,22 @@ class _LodingAnimationState extends State<LodingAnimation> {
 
   @override
   void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
+    _isContinue = false;
 
-  @override
-  void initState() {
-    _startTimer();
-    super.initState();
+    isFirstDotShow.dispose();
+    fastDotBackShow.dispose();
+    isSecondDotShow.dispose();
+    secondDotBackShow.dispose();
+    isLastDotShow.dispose();
+    lastDotBackShow.dispose();
+
+    fastTosecond.dispose();
+    fastTosecond2.dispose();
+    secondTolast.dispose();
+    secondTolast2.dispose();
+    lastTofast.dispose();
+    lastTofast2.dispose();
+
+    super.dispose();
   }
 }

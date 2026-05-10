@@ -1,60 +1,83 @@
-// ignore_for_file: unused_field, unused_element
-
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class ZoomZoomoutAnimation extends StatefulWidget {
   final Widget child;
   final VoidCallback? initState;
+
   const ZoomZoomoutAnimation({super.key, required this.child, this.initState});
 
   @override
   State<ZoomZoomoutAnimation> createState() => _ZoomZoomoutAnimationState();
 }
 
-class _ZoomZoomoutAnimationState extends State<ZoomZoomoutAnimation> {
-  ValueNotifier<bool> isZoomedIn = ValueNotifier<bool>(false);
-  Timer? _timer;
-  void _startTimer() {
-    (widget.initState != null) ? widget.initState!() : null;
-    _timer = Timer(const Duration(milliseconds: 400), () async {
-      await Future.delayed(const Duration(milliseconds: 100), () {
-        isZoomedIn.value = true;
-      });
-      await Future.delayed(const Duration(milliseconds: 100), () {
-        isZoomedIn.value = false;
-      });
-      await Future.delayed(const Duration(milliseconds: 100));
-      await Future.delayed(const Duration(milliseconds: 100), () {
-        isZoomedIn.value = true;
-      });
-      await Future.delayed(const Duration(milliseconds: 100), () {
-        isZoomedIn.value = false;
-      });
-      await Future.delayed(const Duration(milliseconds: 300));
-
-      _startTimer();
-    });
-  }
+class _ZoomZoomoutAnimationState extends State<ZoomZoomoutAnimation>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _scaleAnimation;
 
   @override
   void initState() {
-    _startTimer();
     super.initState();
+    widget.initState?.call();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 560),
+    );
+
+    _scaleAnimation = TweenSequence<double>([
+      TweenSequenceItem(
+        tween: Tween(
+          begin: 0.8,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeOut)),
+        weight: 10, // 60ms
+      ),
+      TweenSequenceItem(
+        tween: Tween(
+          begin: 1.0,
+          end: 0.8,
+        ).chain(CurveTween(curve: Curves.easeIn)),
+        weight: 18, // 100ms
+      ),
+      TweenSequenceItem(
+        tween: ConstantTween(0.8),
+        weight: 18, // 100ms pause
+      ),
+      TweenSequenceItem(
+        tween: Tween(
+          begin: 0.8,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeOut)),
+        weight: 18, // 100ms
+      ),
+      TweenSequenceItem(
+        tween: Tween(
+          begin: 1.0,
+          end: 0.8,
+        ).chain(CurveTween(curve: Curves.easeIn)),
+        weight: 18, // 100ms
+      ),
+    ]).animate(_controller);
+
+    _playLoop();
+  }
+
+  Future<void> _playLoop() async {
+    while (mounted) {
+      await _controller.forward(from: 0.0);
+      if (!mounted) break;
+      _controller.reset();
+      await Future.delayed(const Duration(milliseconds: 1000));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<bool>(
-      valueListenable: isZoomedIn,
-      builder: (context, value, child) {
-        return AnimatedScale(
-          duration: Duration(milliseconds: 70),
-          scale: value ? 1.0 : 0.8,
-
-          child: child,
-        );
+    return AnimatedBuilder(
+      animation: _scaleAnimation,
+      builder: (context, child) {
+        return Transform.scale(scale: _scaleAnimation.value, child: child);
       },
       child: widget.child,
     );
@@ -62,7 +85,7 @@ class _ZoomZoomoutAnimationState extends State<ZoomZoomoutAnimation> {
 
   @override
   void dispose() {
-    _timer?.cancel();
+    _controller.dispose();
     super.dispose();
   }
 }

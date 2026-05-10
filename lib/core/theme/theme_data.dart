@@ -5,6 +5,7 @@ class ThemesData {
   ThemesData._();
   static ThemeData light = ThemeData(
     primaryColor: ThemeColors.primary,
+
     scaffoldBackgroundColor: ThemeColors.surface,
     appBarTheme: const AppBarTheme(backgroundColor: ThemeColors.primary),
   );
