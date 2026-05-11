@@ -5,4 +5,5 @@ class SvgAssets {
   static const String qrcode = 'assets/svg/QR_Code.svg';
   static const String taka = 'assets/svg/taka_icon.svg';
   static const String finger = 'assets/svg/Finger_icon.svg';
+  static const String menu = 'assets/svg/menu-burger.svg';
 }
