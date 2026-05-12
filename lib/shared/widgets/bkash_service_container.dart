@@ -1,7 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:bkashclone/core/assets/svg_assets.dart';
 import 'package:bkashclone/core/theme/theme_colors.dart';
+import 'package:bkashclone/l10n/l10n.dart';
+import 'package:bkashclone/shared/widgets/bkash_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BkashServiceContainer extends StatefulWidget {
   const BkashServiceContainer({super.key});
@@ -77,11 +81,44 @@ class _BkashServiceContainerState extends State<BkashServiceContainer> {
                   mainAxisAlignment: .center,
                   crossAxisAlignment: .center,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        isExpanded.value = !isExpanded.value;
-                      },
-                      child: Text("see mor"),
+                    AnimatedSwitcher(
+                      duration: Duration(milliseconds: 400),
+                      child: BkashButton(
+                        width: 120,
+                        child: Row(
+                          mainAxisAlignment: .center,
+                          crossAxisAlignment: .center,
+                          children: [
+                            Text(
+                              key: ValueKey(value),
+                              value
+                                  ? context.l10n!.close
+                                  : context.l10n!.seeMor,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: .w600,
+                                color: ThemeColors.primary,
+                              ),
+                            ),
+                            SizedBox(width: 2),
+                            AnimatedRotation(
+                              turns: value ? 0.5 : 1,
+                              duration: Duration(milliseconds: 400),
+                              child: SvgPicture.asset(
+                                width: 20,
+                                key: ValueKey(value),
+                                value
+                                    ? SvgAssets.arrowDown
+                                    : SvgAssets.arrowDown,
+                                color: ThemeColors.primary,
+                              ),
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          isExpanded.value = !isExpanded.value;
+                        },
+                      ),
                     ),
                   ],
                 ),

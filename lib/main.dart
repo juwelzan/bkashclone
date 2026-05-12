@@ -1,6 +1,7 @@
 import 'package:bkashclone/app/app_config.dart';
-import 'package:bkashclone/core/theme/theme_data.dart';
+import 'package:bkashclone/core/provider/language_provider/language_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,11 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemesData.light,
-      title: "Bkash",
-      home: AppConfig(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => LanguageProvider()..init()),
+      ],
+      child: AppConfig(),
     );
   }
 }

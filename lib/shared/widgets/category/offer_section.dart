@@ -1,3 +1,4 @@
+import 'package:bkashclone/l10n/l10n.dart';
 import 'package:bkashclone/shared/widgets/category/category_title.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class OfferSection extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 20),
-          CategoryTitle(title: "অফার"),
+          CategoryTitle(title: context.l10n!.offer, onTap: () {}),
           SizedBox(height: 10),
           Expanded(
             child: ListView.builder(

@@ -1,10 +1,11 @@
 // ignore_for_file: file_names
 
+import 'package:bkashclone/l10n/l10n.dart';
 import 'package:bkashclone/shared/widgets/category/category_title.dart';
 import 'package:flutter/material.dart';
 
-class ShajationSection extends StatelessWidget {
-  const ShajationSection({super.key});
+class SuggestionSection extends StatelessWidget {
+  const SuggestionSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class ShajationSection extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 10),
-          CategoryTitle(title: "শাজেশন"),
+          CategoryTitle(title: context.l10n!.suggestion, onTap: () {}),
           SizedBox(height: 10),
           Expanded(
             child: ListView.builder(

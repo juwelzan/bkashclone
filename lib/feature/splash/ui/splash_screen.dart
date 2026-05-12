@@ -1,6 +1,6 @@
 import 'package:bkashclone/core/assets/svg_assets.dart';
 import 'package:bkashclone/core/theme/theme_data.dart';
-import 'package:bkashclone/feature/auth/ui/onboarding_screen.dart';
+import 'package:bkashclone/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:bkashclone/shared/animation/loding_animation.dart';
 import 'package:bkashclone/shared/animation/zoom_zoomout_animation.dart';
 import 'package:flutter/material.dart';
