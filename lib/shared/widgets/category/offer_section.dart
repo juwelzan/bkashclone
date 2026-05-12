@@ -17,6 +17,7 @@ class OfferSection extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: .horizontal,
+              itemCount: 10,
               itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.symmetric(horizontal: 5),

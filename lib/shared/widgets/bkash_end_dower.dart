@@ -58,7 +58,7 @@ class _AvaAIState extends State<AvaAI> with SingleTickerProviderStateMixin {
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 6),
+      duration: Duration(seconds: 3),
     )..repeat(reverse: false);
 
     animation = TweenSequence<Color?>([
@@ -104,7 +104,7 @@ class _AvaAIState extends State<AvaAI> with SingleTickerProviderStateMixin {
             margin: EdgeInsets.all(2),
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.elliptical(7, 7)),
+              borderRadius: BorderRadius.all(Radius.elliptical(6, 6)),
               color: ThemeColors.surface,
             ),
 
