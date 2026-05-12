@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // await SchedulerBinding.instance.endOfFrame;
 
   runApp(MyApp());
 }
