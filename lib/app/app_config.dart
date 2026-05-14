@@ -15,6 +15,7 @@ class AppConfig extends StatelessWidget {
         return Consumer<LanguageProvider>(
           builder: (context, value, child) {
             return MaterialApp(
+              showPerformanceOverlay: true,
               localizationsDelegates: L10n.delegate,
               supportedLocales: L10n.locale,
               locale: value.locale,
