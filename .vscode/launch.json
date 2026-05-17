@@ -5,33 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Dart: Run all Tests",
+      "name": "debug",
       "type": "dart",
       "request": "launch",
-      "program": "./test/"
+      "program": "lib/main.dart"
     },
     {
-      "name": "Dart",
+      "name": "profile",
       "type": "dart",
       "request": "launch",
-      "program": "bin/main.dart"
+      "program": "lib/main.dart"
     },
     {
-      "name": "bkashclone",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
-      "name": "bkashclone (profile mode)",
-      "request": "launch",
+      "name": "release",
       "type": "dart",
-      "flutterMode": "profile"
-    },
-    {
-      "name": "bkashclone (release mode)",
       "request": "launch",
-      "type": "dart",
-      "flutterMode": "release"
-    }
+      "program": "lib/main.dart"
+    },
   ]
 }
