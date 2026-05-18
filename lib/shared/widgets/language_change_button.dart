@@ -1,18 +1,17 @@
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/legacy.dart';
 
-class LanguageChangeButton extends StatefulWidget {
-  const LanguageChangeButton({super.key});
+class LanguageChangeButton extends ConsumerWidget {
+  LanguageChangeButton({super.key});
 
-  @override
-  State<LanguageChangeButton> createState() => _LanguageChangeButtonState();
-}
-
-class _LanguageChangeButtonState extends State<LanguageChangeButton> {
   final List<String> name = ["Eng", "বাং"];
+  final List<String> languageName = ["en", "bn"];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final languageRef = ref.watch(language);
     return Container(
       height: 35,
       width: 90,
@@ -27,14 +26,16 @@ class _LanguageChangeButtonState extends State<LanguageChangeButton> {
           return Expanded(
             child: GestureDetector(
               onTap: () {
-                // context.read<LanguageProvider>().languageChange(index);
+                index == 1
+                    ? ref.read(language.notifier).state = Locale("bn")
+                    : ref.read(language.notifier).state = Locale("en");
               },
               child: Container(
                 margin: EdgeInsets.all(0.5),
                 height: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: index == 2
+                    color: languageRef.languageCode == languageName[index]
                         ? ThemeColors.primary
                         : Colors.transparent,
                     width: 2,
@@ -47,7 +48,7 @@ class _LanguageChangeButtonState extends State<LanguageChangeButton> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: .w600,
-                      color: index == 2
+                      color: languageRef.languageCode == languageName[index]
                           ? ThemeColors.primary
                           : ThemeColors.secondary,
                     ),
@@ -61,3 +62,5 @@ class _LanguageChangeButtonState extends State<LanguageChangeButton> {
     );
   }
 }
+
+final language = StateProvider<Locale>((ref) => Locale("bn"));
