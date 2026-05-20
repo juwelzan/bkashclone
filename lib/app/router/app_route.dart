@@ -5,11 +5,14 @@ import 'package:go_router/go_router.dart';
 
 GoRouter router = GoRouter(
   initialLocation: "/",
-  debugLogDiagnostics: true,
 
   routes: [
-    slideTransition(page: OnboardingScreen(), path: OnboardingScreen.name),
-    slideTransition(page: SplashScreen(), path: "/"),
+    slideTransition(
+      page: OnboardingScreen(),
+      path: OnboardingScreen.path,
+      name: OnboardingScreen.name,
+    ),
+    slideTransition(page: SplashScreen(), path: "/", name: "SplashScreen"),
   ],
   errorBuilder: (context, state) => ErrorPage(error: state.error!),
 );
@@ -24,10 +27,14 @@ class ErrorPage extends StatelessWidget {
   }
 }
 
-GoRoute slideTransition({required String path, required Widget page}) {
+GoRoute slideTransition({
+  required String path,
+  required String name,
+  required Widget page,
+}) {
   return GoRoute(
     path: path,
-    name: path,
+    name: name,
     pageBuilder: (context, state) => CustomTransitionPage(
       key: state.pageKey,
       child: page,

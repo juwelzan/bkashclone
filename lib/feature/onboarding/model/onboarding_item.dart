@@ -1,5 +1,5 @@
-class OnboardingItem<T> {
-  final String type;
-  final T? data;
+class OnboardingItem<T, D> {
+  final T type;
+  final D? data;
   OnboardingItem({required this.type, this.data});
 }

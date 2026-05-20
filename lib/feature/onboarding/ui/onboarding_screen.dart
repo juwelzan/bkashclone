@@ -1,27 +1,77 @@
 import 'package:bkashclone/core/assets/png_assets.dart';
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:bkashclone/feature/onboarding/model/onboarding_item.dart';
-import 'package:bkashclone/feature/splash/ui/splash_screen.dart';
-import 'package:bkashclone/l10n/l10n.dart';
+import 'package:bkashclone/feature/onboarding/widgets/bottom_user_login_bar.dart';
 import 'package:bkashclone/shared/widgets/bkash_end_dower.dart';
 import 'package:bkashclone/shared/widgets/bkash_menu_button.dart';
 import 'package:bkashclone/shared/widgets/bkash_service_container.dart';
 import 'package:bkashclone/shared/widgets/category/offer_section.dart';
 import 'package:bkashclone/shared/widgets/category/other_services_section.dart';
 import 'package:bkashclone/shared/widgets/category/suggestion_section.dart';
-import 'package:bkashclone/shared/widgets/status_bar_blur.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
-  static const String name = "/OnboardingScreen";
+  static const String name = "OnboardingScreen";
+  static const String path = "/OnboardingScreen";
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  BoxDecoration get _boxDecoration => BoxDecoration(
+    color: ThemeColors.surface,
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(20),
+      topRight: Radius.circular(20),
+    ),
+  );
+  Widget get banner => Positioned.fill(
+    child: Column(
+      children: [
+        Image.asset(
+          PngAssets.banner,
+          cacheWidth: 500,
+          filterQuality: FilterQuality.medium,
+        ),
+      ],
+    ),
+  );
+  Widget get bottomBar => const BottomUserLoginBar();
+  Widget get bodyItem => _Body();
+  Widget get body => Positioned.fill(
+    child: RepaintBoundary(
+      child: DraggableScrollableSheet(
+        expand: false,
+        initialChildSize: 0.84,
+        minChildSize: 0.84,
+        maxChildSize: 1.0,
+        builder: (context, scrollController) {
+          return DecoratedBox(
+            decoration: _boxDecoration,
+            child: CustomScrollView(
+              controller: scrollController,
+              slivers: [bodyItem],
+            ),
+          );
+        },
+      ),
+    ),
+  );
+  Widget get bkashEndDower => const BkashEndDower();
+
+  Widget get bkashButton => Builder(
+    builder: (context) {
+      return BkashMenuButton(
+        onTap: () {
+          Scaffold.of(context).openEndDrawer();
+        },
+      );
+    },
+  );
+
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
@@ -32,134 +82,69 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         systemNavigationBarColor: Colors.transparent,
       ),
     );
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: BkashEndDower(),
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Column(children: [Image.asset(PngAssets.banner)]),
-          ),
-          Builder(
-            builder: (context) {
-              return BkashMenuButton(
-                onTap: () {
-                  Scaffold.of(context).openEndDrawer();
-                },
-              );
-            },
-          ),
-          Positioned.fill(
-            child: DraggableScrollableSheet(
-              initialChildSize: 0.84,
-              minChildSize: 0.84,
-              maxChildSize: 1.0,
-              builder: (context, scrollController) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: ThemeColors.surface,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Center(child: FpsMonitor()),
-                );
-              },
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 180,
-              decoration: BoxDecoration(
-                color: ThemeColors.primary,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-              ),
-              padding: EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: .spaceEvenly,
-                children: [
-                  Text(
-                    context.l10n!.greatservicesawait,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: .bold,
-                      color: ThemeColors.surface,
-                    ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(10),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        context.l10n!.login,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: .w500,
-                          color: ThemeColors.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    context.l10n!.changebKashnumber,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: .w500,
-                      color: ThemeColors.surface,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          Positioned(top: 0, left: 0, right: 0, child: StatusBarBlur()),
-        ],
-      ),
+      endDrawer: bkashEndDower,
+      body: Stack(children: [banner, bkashButton, body, bottomBar]),
     );
   }
+}
 
-  List<OnboardingItem> item = [
-    OnboardingItem(type: "BkashServiceContainer"),
-    OnboardingItem(type: "SuggestionSection"),
-    OnboardingItem(type: "OfferSection"),
-    OnboardingItem(type: "OtherServicesSection"),
+class _Body extends StatelessWidget {
+  _Body();
+  Widget get bkashService => const BkashServiceContainer();
+  Widget get suggestion => const SuggestionSection();
+  Widget get offerSection => const OfferSection();
+  Widget get otherServices => const OtherServicesSection();
+  Widget get sizedBox => const SizedBox(height: 300);
+
+  final List<OnboardingItem<OnboardingType, dynamic>> screenItem = [
+    OnboardingItem<OnboardingType, dynamic>(type: .bkashService),
+    OnboardingItem<OnboardingType, dynamic>(type: .suggestion),
+    OnboardingItem<OnboardingType, dynamic>(type: .offerSection),
+    OnboardingItem<OnboardingType, dynamic>(type: .otherServices),
+    OnboardingItem<OnboardingType, dynamic>(type: .sizedBox),
   ];
-  Widget _itemBoulder(OnboardingItem item) {
-    switch (item.type) {
-      case "BkashServiceContainer":
-        return BkashServiceContainer();
-      case "SuggestionSection":
-        return SuggestionSection();
-      case "OfferSection":
-        return OfferSection();
-      case "OtherServicesSection":
-        return OtherServicesSection();
-      default:
-        return SizedBox();
+
+  Widget _itemBuilder(OnboardingItem<OnboardingType, dynamic> type) {
+    switch (type.type) {
+      case .bkashService:
+        return bkashService;
+      case .suggestion:
+        return suggestion;
+      case .offerSection:
+        return offerSection;
+      case .otherServices:
+        return otherServices;
+      case .sizedBox:
+        return sizedBox;
+      // default:
+      //   return const SizedBox();
     }
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(childCount: screenItem.length, (
+        context,
+        index,
+      ) {
+        return RepaintBoundary(child: _itemBuilder(screenItem[index]));
+      }),
+    );
+  }
 }
-// BkashServiceContainer,
-//                         AppRegularFeature(),
-//                         SuggestionSection(),
-//                         OfferSection(),
-//                         OtherServicesSection(),
-//                         SizedBox(height: 250),
+
+enum OnboardingType {
+  bkashService,
+  suggestion,
+  offerSection,
+  otherServices,
+  sizedBox,
+}

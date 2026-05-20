@@ -1,7 +1,7 @@
+import 'package:bkashclone/core/providers/setting/setting_provider.dart';
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/legacy.dart';
 
 class LanguageChangeButton extends ConsumerWidget {
   LanguageChangeButton({super.key});
@@ -11,7 +11,7 @@ class LanguageChangeButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final languageRef = ref.watch(language);
+    final languageRef = ref.watch(settingProviderProvider);
     return Container(
       height: 35,
       width: 90,
@@ -26,16 +26,23 @@ class LanguageChangeButton extends ConsumerWidget {
           return Expanded(
             child: GestureDetector(
               onTap: () {
-                index == 1
-                    ? ref.read(language.notifier).state = Locale("bn")
-                    : ref.read(language.notifier).state = Locale("en");
+                if (index == 1) {
+                  ref
+                      .read(settingProviderProvider.notifier)
+                      .localeChange(languageName[1]);
+                } else {
+                  ref
+                      .read(settingProviderProvider.notifier)
+                      .localeChange(languageName[0]);
+                }
               },
               child: Container(
                 margin: EdgeInsets.all(0.5),
                 height: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: languageRef.languageCode == languageName[index]
+                    color:
+                        languageRef.locale.languageCode == languageName[index]
                         ? ThemeColors.primary
                         : Colors.transparent,
                     width: 2,
@@ -48,7 +55,7 @@ class LanguageChangeButton extends ConsumerWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: .w600,
-                      color: languageRef.languageCode == languageName[index]
+                      color: languageRef.locale == Locale(languageName[index])
                           ? ThemeColors.primary
                           : ThemeColors.secondary,
                     ),
@@ -62,5 +69,3 @@ class LanguageChangeButton extends ConsumerWidget {
     );
   }
 }
-
-final language = StateProvider<Locale>((ref) => Locale("bn"));
