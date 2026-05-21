@@ -1,5 +1,6 @@
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:bkashclone/l10n/l10n.dart';
+import 'package:bkashclone/shared/widgets/text_widget_switcher.dart';
 import 'package:flutter/material.dart';
 
 class CategoryTitle extends StatelessWidget {
@@ -11,18 +12,27 @@ class CategoryTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 20,
+      height: 25,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           mainAxisAlignment: .spaceBetween,
           children: [
-            Text(title, style: TextStyle(fontSize: 16, fontWeight: .w700)),
+            Row(
+              mainAxisAlignment: .center,
+              crossAxisAlignment: .center,
+              children: [
+                TextWidgetSwitcher(
+                  title,
+                  style: TextStyle(fontSize: 16, fontWeight: .w700),
+                ),
+              ],
+            ),
             if (index == null)
               GestureDetector(
                 onTap: onTap,
                 child: onTap != null
-                    ? Text(
+                    ? TextWidgetSwitcher(
                         context.l10n!.seeAll,
                         style: TextStyle(
                           fontSize: 16,

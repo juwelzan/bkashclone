@@ -1,5 +1,7 @@
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:bkashclone/l10n/l10n.dart';
+import 'package:bkashclone/shared/widgets/show_bottom_dower.dart';
+import 'package:bkashclone/shared/widgets/text_widget_switcher.dart';
 import 'package:flutter/material.dart';
 
 class BottomUserLoginBar extends StatelessWidget {
@@ -24,7 +26,7 @@ class BottomUserLoginBar extends StatelessWidget {
         child: Column(
           mainAxisAlignment: .spaceEvenly,
           children: [
-            Text(
+            TextWidgetSwitcher(
               context.l10n!.greatservicesawait,
               style: TextStyle(
                 fontSize: 20,
@@ -41,8 +43,10 @@ class BottomUserLoginBar extends StatelessWidget {
                     borderRadius: BorderRadiusGeometry.circular(10),
                   ),
                 ),
-                onPressed: () {},
-                child: Text(
+                onPressed: () {
+                  showBottomDower(context);
+                },
+                child: TextWidgetSwitcher(
                   context.l10n!.login,
                   style: TextStyle(
                     fontSize: 18,
@@ -52,7 +56,7 @@ class BottomUserLoginBar extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
+            TextWidgetSwitcher(
               context.l10n!.changebKashnumber,
               style: TextStyle(
                 fontSize: 18,

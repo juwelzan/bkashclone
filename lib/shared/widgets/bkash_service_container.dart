@@ -33,6 +33,7 @@ class _BkashServiceContainerState extends State<BkashServiceContainer> {
               height: value ? 520 : 320,
               width: double.infinity,
               child: GridView.builder(
+                padding: EdgeInsets.all(0),
                 itemCount: 16,
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -41,7 +42,7 @@ class _BkashServiceContainerState extends State<BkashServiceContainer> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(color: Colors.deepPurpleAccent),
+                    child: ServicesItem(),
                   );
                 },
               ),
@@ -127,6 +128,36 @@ class _BkashServiceContainerState extends State<BkashServiceContainer> {
           ],
         );
       },
+    );
+  }
+}
+
+class ServicesItem extends StatelessWidget {
+  const ServicesItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          height: 65,
+
+          padding: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            shape: BoxShape.circle,
+          ),
+          child: SvgPicture.asset(
+            SvgAssets.bkashLogo,
+            cacheColorFilter: true,
+            color: ThemeColors.primary,
+          ),
+        ),
+        Text(
+          "Request Money",
+          style: TextStyle(fontSize: 10, fontWeight: .bold),
+        ),
+      ],
     );
   }
 }

@@ -14,7 +14,10 @@ class SuggestionSection extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 10),
-          CategoryTitle(title: context.l10n!.suggestion, onTap: () {}),
+          Padding(
+            padding: const EdgeInsets.all(2),
+            child: CategoryTitle(title: context.l10n!.suggestion, onTap: () {}),
+          ),
           SizedBox(height: 10),
           Expanded(
             child: ListView.builder(

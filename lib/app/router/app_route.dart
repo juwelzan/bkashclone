@@ -43,7 +43,10 @@ GoRoute slideTransition({
           begin: Offset(20, 0),
           end: Offset.zero,
         ).animate(animation);
-        return SlideTransition(position: slide, child: child);
+        return SlideTransition(
+          position: slide,
+          child: RepaintBoundary(child: child),
+        );
       },
     ),
   );
