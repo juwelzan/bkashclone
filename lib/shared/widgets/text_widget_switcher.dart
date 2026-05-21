@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class TextWidgetSwitcher extends StatelessWidget {
   final String text;
   final TextStyle? style;
+  final Duration? duration;
 
-  const TextWidgetSwitcher(this.text, {super.key, this.style});
+  const TextWidgetSwitcher(this.text, {super.key, this.style, this.duration});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class TextWidgetSwitcher extends StatelessWidget {
         height: 24,
         child: Center(
           child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 400),
+            duration: duration ?? const Duration(milliseconds: 400),
             switchInCurve: Curves.easeIn,
             switchOutCurve: Curves.easeOut,
 

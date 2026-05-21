@@ -11,5 +11,21 @@
   "otherServices": "অন্যান্য সেবাসমূহ",
   "bKashMenu": "বিকাশ মেনু",
   "ava": "আভা",
-  "activevirtualassistand": "সক্রিয় ভার্চুয়াল সহকারী"
+  "activevirtualassistand": "সক্রিয় ভার্চুয়াল সহকারী",
+  "send_money": "সেন্ড মানি",
+  "mobile_recharge": "মোবাইল রিচার্জ",
+  "cash_out": "ক্যাশ আউট",
+  "payment": "পেমেন্ট",
+  "add_money": "অ্যাড মানি",
+  "pay_bill": "পে বিল",
+  "savings": "সেভিংস",
+  "loan": "লোন",
+  "insurance": "ইন্স্যুরেন্স",
+  "bkash_to_bank": "বিকাশ টু ব্যাংক",
+  "education_fee": "এডুকেশন ফি",
+  "microfinance": "মাইক্রোফাইন্যান্স",
+  "toll": "টোল",
+  "request_money": "রিকোয়েস্ট মানি",
+  "remittance": "রেমিট্যান্স",
+  "donation": "ডোনেশন"
 }

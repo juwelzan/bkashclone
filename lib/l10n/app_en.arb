@@ -11,5 +11,21 @@
   "otherServices": "Other services",
   "bKashMenu": "bKash Menu",
   "ava": "AVA",
-  "activevirtualassistand": "Active Virtual Assistand"
+  "activevirtualassistand": "Active Virtual Assistand",
+  "send_money": "Send Money",
+  "mobile_recharge": "Mobile Recharge",
+  "cash_out": "Cash Out",
+  "payment": "Payment",
+  "add_money": "Add Money",
+  "pay_bill": "Pay Bill",
+  "savings": "Savings",
+  "loan": "Loan",
+  "insurance": "Insurance",
+  "bkash_to_bank": "bKash to Bank",
+  "education_fee": "Education Fee",
+  "microfinance": "Microfinance",
+  "toll": "Toll",
+  "request_money": "Request Money",
+  "remittance": "Remittance",
+  "donation": "Donation"
 }

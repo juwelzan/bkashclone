@@ -17,7 +17,6 @@ class AppConfig extends StatelessWidget {
           localizationsDelegates: L10n.delegate,
           supportedLocales: L10n.locale,
           locale: setting.locale,
-          showPerformanceOverlay: true,
 
           debugShowCheckedModeBanner: false,
           theme: ThemesData.light,

@@ -169,6 +169,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Active Virtual Assistand'**
   String get activevirtualassistand;
+
+  /// No description provided for @send_money.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Money'**
+  String get send_money;
+
+  /// No description provided for @mobile_recharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Recharge'**
+  String get mobile_recharge;
+
+  /// No description provided for @cash_out.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash Out'**
+  String get cash_out;
+
+  /// No description provided for @payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get payment;
+
+  /// No description provided for @add_money.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Money'**
+  String get add_money;
+
+  /// No description provided for @pay_bill.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay Bill'**
+  String get pay_bill;
+
+  /// No description provided for @savings.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings'**
+  String get savings;
+
+  /// No description provided for @loan.
+  ///
+  /// In en, this message translates to:
+  /// **'Loan'**
+  String get loan;
+
+  /// No description provided for @insurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get insurance;
+
+  /// No description provided for @bkash_to_bank.
+  ///
+  /// In en, this message translates to:
+  /// **'bKash to Bank'**
+  String get bkash_to_bank;
+
+  /// No description provided for @education_fee.
+  ///
+  /// In en, this message translates to:
+  /// **'Education Fee'**
+  String get education_fee;
+
+  /// No description provided for @microfinance.
+  ///
+  /// In en, this message translates to:
+  /// **'Microfinance'**
+  String get microfinance;
+
+  /// No description provided for @toll.
+  ///
+  /// In en, this message translates to:
+  /// **'Toll'**
+  String get toll;
+
+  /// No description provided for @request_money.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Money'**
+  String get request_money;
+
+  /// No description provided for @remittance.
+  ///
+  /// In en, this message translates to:
+  /// **'Remittance'**
+  String get remittance;
+
+  /// No description provided for @donation.
+  ///
+  /// In en, this message translates to:
+  /// **'Donation'**
+  String get donation;
 }
 
 class _AppLocalizationsDelegate

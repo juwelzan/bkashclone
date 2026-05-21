@@ -43,4 +43,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get activevirtualassistand => 'Active Virtual Assistand';
+
+  @override
+  String get send_money => 'Send Money';
+
+  @override
+  String get mobile_recharge => 'Mobile Recharge';
+
+  @override
+  String get cash_out => 'Cash Out';
+
+  @override
+  String get payment => 'Payment';
+
+  @override
+  String get add_money => 'Add Money';
+
+  @override
+  String get pay_bill => 'Pay Bill';
+
+  @override
+  String get savings => 'Savings';
+
+  @override
+  String get loan => 'Loan';
+
+  @override
+  String get insurance => 'Insurance';
+
+  @override
+  String get bkash_to_bank => 'bKash to Bank';
+
+  @override
+  String get education_fee => 'Education Fee';
+
+  @override
+  String get microfinance => 'Microfinance';
+
+  @override
+  String get toll => 'Toll';
+
+  @override
+  String get request_money => 'Request Money';
+
+  @override
+  String get remittance => 'Remittance';
+
+  @override
+  String get donation => 'Donation';
 }

@@ -43,4 +43,52 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get activevirtualassistand => 'সক্রিয় ভার্চুয়াল সহকারী';
+
+  @override
+  String get send_money => 'সেন্ড মানি';
+
+  @override
+  String get mobile_recharge => 'মোবাইল রিচার্জ';
+
+  @override
+  String get cash_out => 'ক্যাশ আউট';
+
+  @override
+  String get payment => 'পেমেন্ট';
+
+  @override
+  String get add_money => 'অ্যাড মানি';
+
+  @override
+  String get pay_bill => 'পে বিল';
+
+  @override
+  String get savings => 'সেভিংস';
+
+  @override
+  String get loan => 'লোন';
+
+  @override
+  String get insurance => 'ইন্স্যুরেন্স';
+
+  @override
+  String get bkash_to_bank => 'বিকাশ টু ব্যাংক';
+
+  @override
+  String get education_fee => 'এডুকেশন ফি';
+
+  @override
+  String get microfinance => 'মাইক্রোফাইন্যান্স';
+
+  @override
+  String get toll => 'টোল';
+
+  @override
+  String get request_money => 'রিকোয়েস্ট মানি';
+
+  @override
+  String get remittance => 'রেমিট্যান্স';
+
+  @override
+  String get donation => 'ডোনেশন';
 }

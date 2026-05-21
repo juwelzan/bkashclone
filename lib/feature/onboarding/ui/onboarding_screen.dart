@@ -4,7 +4,7 @@ import 'package:bkashclone/feature/onboarding/model/onboarding_item.dart';
 import 'package:bkashclone/feature/onboarding/widgets/bottom_user_login_bar.dart';
 import 'package:bkashclone/shared/widgets/bkash_end_dower.dart';
 import 'package:bkashclone/shared/widgets/bkash_menu_button.dart';
-import 'package:bkashclone/shared/widgets/bkash_service_container.dart';
+import 'package:bkashclone/shared/widgets/bkash_service_container/bkash_service_container.dart';
 import 'package:bkashclone/shared/widgets/category/offer_section.dart';
 import 'package:bkashclone/shared/widgets/category/other_services_section.dart';
 import 'package:bkashclone/shared/widgets/category/suggestion_section.dart';
