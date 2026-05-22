@@ -415,6 +415,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Resend OTP'**
   String get resend_otp;
+
+  /// No description provided for @enter_number_starting_with.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a number starting with 01'**
+  String get enter_number_starting_with;
 }
 
 class _AppLocalizationsDelegate

@@ -167,4 +167,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resend_otp => 'Resend OTP';
+
+  @override
+  String get enter_number_starting_with => 'Enter a number starting with 01';
 }

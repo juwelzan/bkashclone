@@ -52,5 +52,6 @@
   "invalid_otp": "ভুল OTP",
   "otp_sent": "OTP পাঠানো হয়েছে",
   "phone_verification": "ফোন যাচাই",
-  "resend_otp": "OTP আবার পাঠান"
+  "resend_otp": "OTP আবার পাঠান",
+  "enter_number_starting_with": "01 দিয়ে শুরু করা নাম্বার দিন"
 }

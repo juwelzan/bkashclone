@@ -167,4 +167,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get resend_otp => 'OTP আবার পাঠান';
+
+  @override
+  String get enter_number_starting_with => '01 দিয়ে শুরু করা নাম্বার দিন';
 }

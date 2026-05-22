@@ -52,5 +52,6 @@
   "invalid_otp": "Invalid OTP",
   "otp_sent": "OTP Sent",
   "phone_verification": "Phone Verification",
-  "resend_otp": "Resend OTP"
+  "resend_otp": "Resend OTP",
+  "enter_number_starting_with": "Enter a number starting with 01"
 }

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'setting_provider.dart';
+part of 'auth_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,51 +9,51 @@ part of 'setting_provider.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(SettingProvider)
-final settingProviderProvider = SettingProviderProvider._();
+@ProviderFor(AuthProvider)
+final authProviderProvider = AuthProviderProvider._();
 
-final class SettingProviderProvider
-    extends $NotifierProvider<SettingProvider, SettingState> {
-  SettingProviderProvider._()
+final class AuthProviderProvider
+    extends $NotifierProvider<AuthProvider, AuthProviderState> {
+  AuthProviderProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'settingProviderProvider',
+        name: r'authProviderProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$settingProviderHash();
+  String debugGetCreateSourceHash() => _$authProviderHash();
 
   @$internal
   @override
-  SettingProvider create() => SettingProvider();
+  AuthProvider create() => AuthProvider();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(SettingState value) {
+  Override overrideWithValue(AuthProviderState value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<SettingState>(value),
+      providerOverride: $SyncValueProvider<AuthProviderState>(value),
     );
   }
 }
 
-String _$settingProviderHash() => r'2244663369497540953e1d8ab1957c8c93dc84be';
+String _$authProviderHash() => r'7e262929c53c5b94ebc81cfa8dc7c26a3c0eab43';
 
-abstract class _$SettingProvider extends $Notifier<SettingState> {
-  SettingState build();
+abstract class _$AuthProvider extends $Notifier<AuthProviderState> {
+  AuthProviderState build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final ref = this.ref as $Ref<SettingState, SettingState>;
+    final ref = this.ref as $Ref<AuthProviderState, AuthProviderState>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<SettingState, SettingState>,
-              SettingState,
+              AnyNotifier<AuthProviderState, AuthProviderState>,
+              AuthProviderState,
               Object?,
               Object?
             >;
