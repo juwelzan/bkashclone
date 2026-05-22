@@ -36,13 +36,15 @@ class LanguageChangeButton extends ConsumerWidget {
                       .localeChange(languageName[0]);
                 }
               },
-              child: Container(
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 300),
                 margin: EdgeInsets.all(0.5),
                 height: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color:
-                        languageRef.locale.languageCode == languageName[index]
+                        languageRef.locale.languageCode ==
+                            languageName[index].trim()
                         ? ThemeColors.primary
                         : Colors.transparent,
                     width: 2,
@@ -55,7 +57,9 @@ class LanguageChangeButton extends ConsumerWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: .w600,
-                      color: languageRef.locale == Locale(languageName[index])
+                      color:
+                          languageRef.locale ==
+                              Locale(languageName[index].trim())
                           ? ThemeColors.primary
                           : ThemeColors.secondary,
                     ),

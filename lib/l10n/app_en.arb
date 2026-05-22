@@ -27,5 +27,16 @@
   "toll": "Toll",
   "request_money": "Request Money",
   "remittance": "Remittance",
-  "donation": "Donation"
+  "donation": "Donation",
+  "login_or_registration": "Login or Register in the bKash app",
+  "logout": "Log Out",
+  "refer_bkash_app": "Refer bKash App",
+  "discover_bkash": "Discover bKash",
+  "nominee_update": "Nominee Update",
+  "information_update": "Information Update",
+  "bkash_map": "bKash Map",
+  "customer_service": "Customer Service",
+  "limit": "Limit",
+  "statements": "Statements",
+  "home": "Home"
 }

@@ -27,5 +27,16 @@
   "toll": "টোল",
   "request_money": "রিকোয়েস্ট মানি",
   "remittance": "রেমিট্যান্স",
-  "donation": "ডোনেশন"
+  "donation": "ডোনেশন",
+  "login_or_registration": "বিকাশ অ্যাপে লগইন বা রেজিস্ট্রেশন করুন",
+  "logout": "লগ আউট",
+  "refer_bkash_app": "রেফার বিকাশ অ্যাপ",
+  "discover_bkash": "ডিসকভার বিকাশ",
+  "nominee_update": "নমিনি আপডেট",
+  "information_update": "তথ্য আপডেট",
+  "bkash_map": "বিকাশ ম্যাপ",
+  "customer_service": "কাস্টমার সার্ভিস",
+  "limit": "লিমিট",
+  "statements": "স্টেটমেন্ট",
+  "home": "হোম"
 }

@@ -17,4 +17,5 @@ class ServiceSvgAssets {
   static const String savings = "$_basePath/Savings.svg";
   static const String sendMoney = "$_basePath/SendMoney.svg";
   static const String toll = "$_basePath/Toll.svg";
+  static const String payment = "$_basePath/payment.svg";
 }

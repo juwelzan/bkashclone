@@ -1,8 +1,10 @@
 import 'package:bkashclone/core/theme/theme_colors.dart';
+import 'package:bkashclone/feature/auth/ui/phone_number_set_screen.dart';
 import 'package:bkashclone/l10n/l10n.dart';
-import 'package:bkashclone/shared/widgets/show_bottom_dower.dart';
+import 'package:bkashclone/shared/widgets/bkash_button.dart';
 import 'package:bkashclone/shared/widgets/text_widget_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomUserLoginBar extends StatelessWidget {
   const BottomUserLoginBar({super.key});
@@ -27,40 +29,38 @@ class BottomUserLoginBar extends StatelessWidget {
           mainAxisAlignment: .spaceEvenly,
           children: [
             TextWidgetSwitcher(
-              context.l10n!.greatservicesawait,
+              context.l10n.greatservicesawait,
               style: TextStyle(
-                fontSize: 20,
-                fontWeight: .bold,
+                fontSize: 19,
+                fontWeight: .w500,
                 color: ThemeColors.surface,
               ),
             ),
             SizedBox(
               width: double.infinity,
-
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadiusGeometry.circular(10),
-                  ),
-                ),
-                onPressed: () {
-                  showBottomDower(context);
+              child: BkashButton(
+                onTap: () {
+                  context.push(PhoneNumberSetScreen.path);
                 },
+                width: double.infinity,
+                color: ThemeColors.surface,
+                height: 50,
                 child: TextWidgetSwitcher(
-                  context.l10n!.login,
+                  context.l10n.login,
+
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: .w500,
+                    fontSize: 16,
+                    fontWeight: .w400,
                     color: ThemeColors.primary,
                   ),
                 ),
               ),
             ),
             TextWidgetSwitcher(
-              context.l10n!.changebKashnumber,
+              context.l10n.changebKashnumber,
               style: TextStyle(
-                fontSize: 18,
-                fontWeight: .w500,
+                fontSize: 16,
+                fontWeight: .w400,
                 color: ThemeColors.surface,
               ),
             ),

@@ -1,24 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 🔥 Launch Theme -->
+    <!-- Launch Theme -->
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
-<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
 
-        <!-- 🔥 BLACK REMOVE -->
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">
+            shortEdges
+        </item>
 
-        <!-- 🔥 Status bar transparent -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Background -->
+        <item name="android:windowBackground">
+            @android:color/transparent
+        </item>
 
-        <!-- 🔥 allow drawing behind status bar -->
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+
+        <!-- Navigation Bar -->
+        <item name="android:navigationBarColor">
+            @android:color/black
+        </item>
+
+        <!-- Allow system bar drawing -->
+        <item name="android:windowDrawsSystemBarBackgrounds">
+            true
+        </item>
 
     </style>
 
-    <!-- 🔥 Normal Theme -->
+    <!-- Normal Theme -->
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
-        <item name="android:windowBackground">@android:color/white</item>
+
+        <item name="android:windowBackground">
+            @android:color/white
+        </item>
+
+        <item name="android:navigationBarColor">
+            @android:color/black
+        </item>
+
     </style>
 
 </resources>

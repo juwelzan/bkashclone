@@ -91,4 +91,37 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get donation => 'ডোনেশন';
+
+  @override
+  String get login_or_registration => 'বিকাশ অ্যাপে লগইন বা রেজিস্ট্রেশন করুন';
+
+  @override
+  String get logout => 'লগ আউট';
+
+  @override
+  String get refer_bkash_app => 'রেফার বিকাশ অ্যাপ';
+
+  @override
+  String get discover_bkash => 'ডিসকভার বিকাশ';
+
+  @override
+  String get nominee_update => 'নমিনি আপডেট';
+
+  @override
+  String get information_update => 'তথ্য আপডেট';
+
+  @override
+  String get bkash_map => 'বিকাশ ম্যাপ';
+
+  @override
+  String get customer_service => 'কাস্টমার সার্ভিস';
+
+  @override
+  String get limit => 'লিমিট';
+
+  @override
+  String get statements => 'স্টেটমেন্ট';
+
+  @override
+  String get home => 'হোম';
 }

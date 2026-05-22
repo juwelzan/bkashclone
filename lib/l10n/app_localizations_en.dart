@@ -91,4 +91,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get donation => 'Donation';
+
+  @override
+  String get login_or_registration => 'Login or Register in the bKash app';
+
+  @override
+  String get logout => 'Log Out';
+
+  @override
+  String get refer_bkash_app => 'Refer bKash App';
+
+  @override
+  String get discover_bkash => 'Discover bKash';
+
+  @override
+  String get nominee_update => 'Nominee Update';
+
+  @override
+  String get information_update => 'Information Update';
+
+  @override
+  String get bkash_map => 'bKash Map';
+
+  @override
+  String get customer_service => 'Customer Service';
+
+  @override
+  String get limit => 'Limit';
+
+  @override
+  String get statements => 'Statements';
+
+  @override
+  String get home => 'Home';
 }

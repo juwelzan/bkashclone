@@ -4,8 +4,15 @@ class TextWidgetSwitcher extends StatelessWidget {
   final String text;
   final TextStyle? style;
   final Duration? duration;
+  final double? boxHeight;
 
-  const TextWidgetSwitcher(this.text, {super.key, this.style, this.duration});
+  const TextWidgetSwitcher(
+    this.text, {
+    super.key,
+    this.style,
+    this.duration,
+    this.boxHeight,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +21,7 @@ class TextWidgetSwitcher extends StatelessWidget {
       curve: Curves.easeOut,
 
       child: SizedBox(
-        height: 24,
+        height: boxHeight ?? 24,
         child: Center(
           child: AnimatedSwitcher(
             duration: duration ?? const Duration(milliseconds: 400),

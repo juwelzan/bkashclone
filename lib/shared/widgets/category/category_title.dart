@@ -33,7 +33,7 @@ class CategoryTitle extends StatelessWidget {
                 onTap: onTap,
                 child: onTap != null
                     ? TextWidgetSwitcher(
-                        context.l10n!.seeAll,
+                        context.l10n.seeAll,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: .w700,
@@ -50,7 +50,8 @@ class CategoryTitle extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: .end,
                   children: List.generate(2, (inde) {
-                    return Container(
+                    return AnimatedContainer(
+                      duration: Duration(milliseconds: 400),
                       padding: EdgeInsets.all(6),
                       margin: EdgeInsets.symmetric(horizontal: 3),
                       decoration: BoxDecoration(

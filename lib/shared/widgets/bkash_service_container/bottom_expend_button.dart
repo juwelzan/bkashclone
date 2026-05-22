@@ -58,8 +58,8 @@ class BottomExpendButton extends StatelessWidget {
                           TextWidgetSwitcher(
                             duration: Duration(milliseconds: 800),
                             isExpanded
-                                ? context.l10n!.close
-                                : context.l10n!.seeMor,
+                                ? context.l10n.close
+                                : context.l10n.seeMor,
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: .w600,

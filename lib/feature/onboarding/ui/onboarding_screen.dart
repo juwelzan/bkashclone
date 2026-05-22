@@ -73,24 +73,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   );
 
   @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.light,
-        systemNavigationBarColor: Colors.transparent,
-      ),
-    );
-
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: bkashEndDower,
-      body: Stack(children: [banner, bkashButton, body, bottomBar]),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+
+        systemNavigationBarColor: ThemeColors.primary,
+        systemNavigationBarDividerColor: Colors.transparent,
+
+        systemNavigationBarIconBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.light,
+      ),
+      child: Scaffold(
+        endDrawer: bkashEndDower,
+        body: Stack(children: [banner, bkashButton, body, bottomBar]),
+      ),
     );
   }
 }

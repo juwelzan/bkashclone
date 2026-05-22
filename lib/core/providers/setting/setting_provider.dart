@@ -15,8 +15,8 @@ class SettingProvider extends _$SettingProvider {
   }
 
   void localeChange(String code) {
-    state = state.copyWith(locale: Locale(code));
-    _sharedUpdate(local: code);
+    state = state.copyWith(locale: Locale(code.trim()));
+    _sharedUpdate(local: code.trim());
   }
 
   void themeChange(ThemeMode themeMode) {
@@ -60,5 +60,9 @@ class SettingProvider extends _$SettingProvider {
     } else {
       return .system;
     }
+  }
+
+  void screenViewUpdate(ScreenView screenView) {
+    state = state.copyWith(screenView: screenView);
   }
 }

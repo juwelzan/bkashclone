@@ -1,3 +1,4 @@
+import 'package:bkashclone/feature/auth/ui/phone_number_set_screen.dart';
 import 'package:bkashclone/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:bkashclone/feature/splash/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,11 @@ GoRouter router = GoRouter(
       page: OnboardingScreen(),
       path: OnboardingScreen.path,
       name: OnboardingScreen.name,
+    ),
+    slideTransition(
+      page: PhoneNumberSetScreen(),
+      path: PhoneNumberSetScreen.path,
+      name: PhoneNumberSetScreen.name,
     ),
     slideTransition(page: SplashScreen(), path: "/", name: "SplashScreen"),
   ],

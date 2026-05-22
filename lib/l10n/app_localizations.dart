@@ -265,6 +265,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Donation'**
   String get donation;
+
+  /// No description provided for @login_or_registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Login or Register in the bKash app'**
+  String get login_or_registration;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logout;
+
+  /// No description provided for @refer_bkash_app.
+  ///
+  /// In en, this message translates to:
+  /// **'Refer bKash App'**
+  String get refer_bkash_app;
+
+  /// No description provided for @discover_bkash.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover bKash'**
+  String get discover_bkash;
+
+  /// No description provided for @nominee_update.
+  ///
+  /// In en, this message translates to:
+  /// **'Nominee Update'**
+  String get nominee_update;
+
+  /// No description provided for @information_update.
+  ///
+  /// In en, this message translates to:
+  /// **'Information Update'**
+  String get information_update;
+
+  /// No description provided for @bkash_map.
+  ///
+  /// In en, this message translates to:
+  /// **'bKash Map'**
+  String get bkash_map;
+
+  /// No description provided for @customer_service.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer Service'**
+  String get customer_service;
+
+  /// No description provided for @limit.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit'**
+  String get limit;
+
+  /// No description provided for @statements.
+  ///
+  /// In en, this message translates to:
+  /// **'Statements'**
+  String get statements;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
 }
 
 class _AppLocalizationsDelegate

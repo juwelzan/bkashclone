@@ -1,10 +1,14 @@
 import 'package:bkashclone/core/assets/svg_assets.dart';
+import 'package:bkashclone/core/providers/setting/setting_provider.dart';
+import 'package:bkashclone/core/providers/setting/setting_state.dart';
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:bkashclone/l10n/l10n.dart';
 import 'package:bkashclone/shared/widgets/dower_list_tile.dart';
 import 'package:bkashclone/shared/widgets/language_change_button.dart';
+import 'package:bkashclone/shared/widgets/show_bottom_dower.dart';
 import 'package:bkashclone/shared/widgets/text_widget_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BkashEndDower extends StatelessWidget {
@@ -12,34 +16,72 @@ class BkashEndDower extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final double width = MediaQuery.of(context).size.width;
     return Container(
       width: width * 0.80,
       height: double.infinity,
       decoration: BoxDecoration(color: ThemeColors.surface),
       padding: EdgeInsets.all(15),
-      child: Column(
-        children: [
-          SizedBox(height: 60),
-          Row(
-            mainAxisAlignment: .spaceBetween,
+      child: Consumer(
+        builder: (context, ref, child) {
+          final red = ref.watch(settingProviderProvider);
+          return Column(
             children: [
-              TextWidgetSwitcher(
-                context.l10n!.bKashMenu,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: .w600,
-                  color: ThemeColors.primary,
-                ),
-              ),
-              LanguageChangeButton(),
-            ],
-          ),
-          SizedBox(height: 40),
+              SizedBox(height: 60),
 
-          SizedBox(height: 40),
-          DowerListTile(),
-        ],
+              Row(
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  TextWidgetSwitcher(
+                    context.l10n.bKashMenu,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: .w600,
+                      color: ThemeColors.primary,
+                    ),
+                  ),
+                  LanguageChangeButton(),
+                ],
+              ),
+              if (red.screenView == ScreenView.home) AvaAI(),
+
+              SizedBox(height: 40),
+              DowerListTile(
+                title: l10n.home,
+                onTap: () {
+                  if (red.screenView == ScreenView.onboarding) {
+                    showBottomDower(context);
+                  }
+                },
+              ),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.statements),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.limit),
+              DowerListTile(
+                title: l10n.customer_service,
+                onTap: () {
+                  if (red.screenView == ScreenView.onboarding) {
+                    showBottomDower(context);
+                  }
+                },
+              ),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.bkash_map),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.information_update),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.nominee_update),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.discover_bkash),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.refer_bkash_app),
+              if (red.screenView == ScreenView.home)
+                DowerListTile(title: l10n.logout),
+            ],
+          );
+        },
       ),
     );
   }
@@ -135,7 +177,7 @@ class _AvaAIState extends State<AvaAI> with SingleTickerProviderStateMixin {
                       Row(
                         mainAxisSize: .min,
                         children: [
-                          TextWidgetSwitcher(context.l10n!.ava),
+                          TextWidgetSwitcher(context.l10n.ava),
                           SizedBox(width: 5),
                           Container(
                             height: 18,
@@ -161,7 +203,7 @@ class _AvaAIState extends State<AvaAI> with SingleTickerProviderStateMixin {
                       ),
                       SizedBox(height: 5),
 
-                      TextWidgetSwitcher(context.l10n!.activevirtualassistand),
+                      TextWidgetSwitcher(context.l10n.activevirtualassistand),
                     ],
                   ),
                 ],
