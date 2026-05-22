@@ -331,6 +331,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// No description provided for @enter_mobile_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Mobile Number'**
+  String get enter_mobile_number;
+
+  /// No description provided for @country_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Code'**
+  String get country_code;
+
+  /// No description provided for @mobile_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Number'**
+  String get mobile_number;
+
+  /// No description provided for @bangladesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Bangladesh'**
+  String get bangladesh;
+
+  /// No description provided for @terms_and_conditions_agreement.
+  ///
+  /// In en, this message translates to:
+  /// **'You agree to the terms and conditions'**
+  String get terms_and_conditions_agreement;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @get_started.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get get_started;
+
+  /// No description provided for @verify_otp.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify OTP'**
+  String get verify_otp;
+
+  /// No description provided for @invalid_otp.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid OTP'**
+  String get invalid_otp;
+
+  /// No description provided for @otp_sent.
+  ///
+  /// In en, this message translates to:
+  /// **'OTP Sent'**
+  String get otp_sent;
+
+  /// No description provided for @phone_verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Verification'**
+  String get phone_verification;
+
+  /// No description provided for @resend_otp.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend OTP'**
+  String get resend_otp;
 }
 
 class _AppLocalizationsDelegate

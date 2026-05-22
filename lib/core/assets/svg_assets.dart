@@ -9,4 +9,6 @@ class SvgAssets {
   static const String arrowDown = 'assets/svg/angle-small-down.svg';
   static const String home = 'assets/svg/home.svg';
   static const String adslider = 'assets/svg/adslider.svg';
+  static const String arrowBack = 'assets/svg/arrow-small-left.svg';
+  static const String arrowRight = 'assets/svg/arrow-small-right.svg';
 }

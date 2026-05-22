@@ -38,5 +38,19 @@
   "customer_service": "Customer Service",
   "limit": "Limit",
   "statements": "Statements",
-  "home": "Home"
+  "home": "Home",
+  "enter_mobile_number": "Enter Mobile Number",
+  "country_code": "Country Code",
+  "mobile_number": "Mobile Number",
+  "bangladesh": "Bangladesh",
+  "terms_and_conditions_agreement": "You agree to the terms and conditions",
+  "next": "Next",
+  "skip": "Skip",
+  "welcome": "Welcome",
+  "get_started": "Get Started",
+  "verify_otp": "Verify OTP",
+  "invalid_otp": "Invalid OTP",
+  "otp_sent": "OTP Sent",
+  "phone_verification": "Phone Verification",
+  "resend_otp": "Resend OTP"
 }

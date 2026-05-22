@@ -38,5 +38,19 @@
   "customer_service": "কাস্টমার সার্ভিস",
   "limit": "লিমিট",
   "statements": "স্টেটমেন্ট",
-  "home": "হোম"
+  "home": "হোম",
+  "enter_mobile_number": "মোবাইল নম্বর দিন",
+  "mobile_number": "মোবাইল নম্বর",
+  "country_code": "দেশের কোড",
+  "bangladesh": "বাংলাদেশ",
+  "terms_and_conditions_agreement": "আপনি নিয়ম ও শর্তসমূহে সম্মত আছেন",
+  "next": "পরবর্তী",
+  "skip": "এড়িয়ে যান",
+  "welcome": "স্বাগতম",
+  "get_started": "শুরু করুন",
+  "verify_otp": "OTP যাচাই করুন",
+  "invalid_otp": "ভুল OTP",
+  "otp_sent": "OTP পাঠানো হয়েছে",
+  "phone_verification": "ফোন যাচাই",
+  "resend_otp": "OTP আবার পাঠান"
 }

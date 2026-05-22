@@ -124,4 +124,47 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get home => 'হোম';
+
+  @override
+  String get enter_mobile_number => 'মোবাইল নম্বর দিন';
+
+  @override
+  String get country_code => 'দেশের কোড';
+
+  @override
+  String get mobile_number => 'মোবাইল নম্বর';
+
+  @override
+  String get bangladesh => 'বাংলাদেশ';
+
+  @override
+  String get terms_and_conditions_agreement =>
+      'আপনি নিয়ম ও শর্তসমূহে সম্মত আছেন';
+
+  @override
+  String get next => 'পরবর্তী';
+
+  @override
+  String get skip => 'এড়িয়ে যান';
+
+  @override
+  String get welcome => 'স্বাগতম';
+
+  @override
+  String get get_started => 'শুরু করুন';
+
+  @override
+  String get verify_otp => 'OTP যাচাই করুন';
+
+  @override
+  String get invalid_otp => 'ভুল OTP';
+
+  @override
+  String get otp_sent => 'OTP পাঠানো হয়েছে';
+
+  @override
+  String get phone_verification => 'ফোন যাচাই';
+
+  @override
+  String get resend_otp => 'OTP আবার পাঠান';
 }

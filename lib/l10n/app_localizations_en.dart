@@ -124,4 +124,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get enter_mobile_number => 'Enter Mobile Number';
+
+  @override
+  String get country_code => 'Country Code';
+
+  @override
+  String get mobile_number => 'Mobile Number';
+
+  @override
+  String get bangladesh => 'Bangladesh';
+
+  @override
+  String get terms_and_conditions_agreement =>
+      'You agree to the terms and conditions';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get get_started => 'Get Started';
+
+  @override
+  String get verify_otp => 'Verify OTP';
+
+  @override
+  String get invalid_otp => 'Invalid OTP';
+
+  @override
+  String get otp_sent => 'OTP Sent';
+
+  @override
+  String get phone_verification => 'Phone Verification';
+
+  @override
+  String get resend_otp => 'Resend OTP';
 }
