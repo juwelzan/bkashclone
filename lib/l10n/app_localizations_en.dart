@@ -192,4 +192,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get change => 'Change';
+
+  @override
+  String get login_to_bkash_account => 'Log in |to your bKash account';
+
+  @override
+  String get account_number => 'Account Number';
+
+  @override
+  String get bkash_pin => 'bKash PIN';
+
+  @override
+  String get enter_bkash_pin => 'Enter bKash PIN';
+
+  @override
+  String get forgot_pin => 'Forgot PIN?';
+
+  @override
+  String get pin_reset => 'Try PIN Reset';
 }

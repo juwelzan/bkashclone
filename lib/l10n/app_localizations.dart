@@ -463,6 +463,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Change'**
   String get change;
+
+  /// No description provided for @login_to_bkash_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in |to your bKash account'**
+  String get login_to_bkash_account;
+
+  /// No description provided for @account_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Number'**
+  String get account_number;
+
+  /// No description provided for @bkash_pin.
+  ///
+  /// In en, this message translates to:
+  /// **'bKash PIN'**
+  String get bkash_pin;
+
+  /// No description provided for @enter_bkash_pin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter bKash PIN'**
+  String get enter_bkash_pin;
+
+  /// No description provided for @forgot_pin.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot PIN?'**
+  String get forgot_pin;
+
+  /// No description provided for @pin_reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Try PIN Reset'**
+  String get pin_reset;
 }
 
 class _AppLocalizationsDelegate

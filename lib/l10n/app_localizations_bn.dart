@@ -126,13 +126,13 @@ class AppLocalizationsBn extends AppLocalizations {
   String get home => 'হোম';
 
   @override
-  String get enter_mobile_number => 'মোবাইল নম্বর দিন';
+  String get enter_mobile_number => 'মোবাইল নাম্বার দিন';
 
   @override
   String get country_code => 'দেশের কোড';
 
   @override
-  String get mobile_number => 'মোবাইল নম্বর';
+  String get mobile_number => 'মোবাইল নাম্বার';
 
   @override
   String get bangladesh => 'বাংলাদেশ';
@@ -185,11 +185,29 @@ class AppLocalizationsBn extends AppLocalizations {
   String get verification => 'ভেরিফিকেশন কোড';
 
   @override
-  String get your_mobile_number => 'আপনার মোবাইল নম্বর';
+  String get your_mobile_number => 'আপনার মোবাইল নাম্বার';
 
   @override
   String get verify => 'ভেরিফাই';
 
   @override
   String get change => 'পরিবর্তন';
+
+  @override
+  String get login_to_bkash_account => 'আপনার বিকাশ অ্যাকাউন্টে | লগ ইন করুন';
+
+  @override
+  String get account_number => 'অ্যাকাউন্ট নাম্বার';
+
+  @override
+  String get bkash_pin => 'বিকাশ পিন';
+
+  @override
+  String get enter_bkash_pin => 'বিকাশ পিন নাম্বার দিন';
+
+  @override
+  String get forgot_pin => 'পিন ভুলে গেছেন?';
+
+  @override
+  String get pin_reset => 'পিন রিসেট করুন';
 }

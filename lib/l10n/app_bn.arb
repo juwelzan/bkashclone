@@ -39,8 +39,8 @@
   "limit": "লিমিট",
   "statements": "স্টেটমেন্ট",
   "home": "হোম",
-  "enter_mobile_number": "মোবাইল নম্বর দিন",
-  "mobile_number": "মোবাইল নম্বর",
+  "enter_mobile_number": "মোবাইল নাম্বার দিন",
+  "mobile_number": "মোবাইল নাম্বার",
   "country_code": "দেশের কোড",
   "bangladesh": "বাংলাদেশ",
   "terms_and_conditions_agreement": "আপনি নিয়ম ও শর্তসমূহে সম্মত আছেন",
@@ -58,7 +58,13 @@
   "enter_number_starting_with013": "01[3-9] দিয়ে শুরু করা নাম্বার দিন",
   "verification_code_sent": "ভেরিফিকেশন কোড পাঠানো হয়েছে",
   "verification": "ভেরিফিকেশন কোড",
-  "your_mobile_number": "আপনার মোবাইল নম্বর",
+  "your_mobile_number": "আপনার মোবাইল নাম্বার",
   "verify": "ভেরিফাই",
-  "change": "পরিবর্তন"
+  "change": "পরিবর্তন",
+  "login_to_bkash_account": "আপনার বিকাশ অ্যাকাউন্টে |লগ ইন করুন",
+  "account_number": "অ্যাকাউন্ট নাম্বার",
+  "bkash_pin": "বিকাশ পিন",
+  "enter_bkash_pin": "বিকাশ পিন নাম্বার দিন",
+  "forgot_pin": "পিন ভুলে গেছেন?",
+  "pin_reset": "পিন রিসেট করুন"
 }

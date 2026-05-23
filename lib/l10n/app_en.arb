@@ -60,5 +60,11 @@
   "verification": "Verification code",
   "your_mobile_number": "Your mobile number",
   "verify": "Verify",
-  "change": "Change"
+  "change": "Change",
+  "login_to_bkash_account": "Log in |to your bKash account",
+  "account_number": "Account Number",
+  "bkash_pin": "bKash PIN",
+  "enter_bkash_pin": "Enter bKash PIN",
+  "forgot_pin": "Forgot PIN?",
+  "pin_reset": "Try PIN Reset"
 }
