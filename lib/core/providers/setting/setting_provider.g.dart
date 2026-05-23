@@ -41,7 +41,7 @@ final class SettingProviderProvider
   }
 }
 
-String _$settingProviderHash() => r'2244663369497540953e1d8ab1957c8c93dc84be';
+String _$settingProviderHash() => r'76d118edb5c25824e227aa3e9db80cb2fbf59505';
 
 abstract class _$SettingProvider extends $Notifier<SettingState> {
   SettingState build();

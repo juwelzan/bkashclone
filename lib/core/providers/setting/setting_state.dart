@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 
 class SettingState {
   ThemeMode themeMode;
-  Locale locale;
+  String localeCode;
   ScreenView screenView;
   SettingState({
     this.themeMode = ThemeMode.system,
-    this.locale = const Locale("bn"),
+    this.localeCode = "bn",
     this.screenView = .onboarding,
   });
 
   SettingState copyWith({
     ThemeMode? themeMode,
-    Locale? locale,
+    String? localeCode,
     ScreenView? screenView,
   }) {
     return SettingState(
       themeMode: themeMode ?? this.themeMode,
-      locale: locale ?? this.locale,
+      localeCode: localeCode ?? this.localeCode,
       screenView: screenView ?? this.screenView,
     );
   }

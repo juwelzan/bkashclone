@@ -16,7 +16,7 @@ class AppConfig extends StatelessWidget {
         return MaterialApp.router(
           localizationsDelegates: L10n.delegate,
           supportedLocales: L10n.locale,
-          locale: setting.locale,
+          locale: Locale(setting.localeCode),
 
           debugShowCheckedModeBanner: false,
           theme: ThemesData.light,

@@ -1,3 +1,5 @@
+import 'package:bkashclone/feature/auth/ui/otp_verify_screen.dart';
+import 'package:bkashclone/feature/auth/ui/password_screen.dart';
 import 'package:bkashclone/feature/auth/ui/phone_number_set_screen.dart';
 import 'package:bkashclone/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:bkashclone/feature/splash/ui/splash_screen.dart';
@@ -17,6 +19,16 @@ GoRouter router = GoRouter(
       page: PhoneNumberSetScreen(),
       path: PhoneNumberSetScreen.path,
       name: PhoneNumberSetScreen.name,
+    ),
+    slideTransition(
+      page: OtpVerifyScreen(),
+      path: OtpVerifyScreen.path,
+      name: OtpVerifyScreen.name,
+    ),
+    slideTransition(
+      page: PasswordScreen(),
+      path: PasswordScreen.path,
+      name: PasswordScreen.name,
     ),
     slideTransition(page: SplashScreen(), path: "/", name: "SplashScreen"),
   ],

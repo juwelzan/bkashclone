@@ -1,15 +1,17 @@
 import 'package:bkashclone/core/assets/png_assets.dart';
-import 'package:bkashclone/core/assets/svg_assets.dart';
 import 'package:bkashclone/core/theme/theme_colors.dart';
 import 'package:bkashclone/feature/auth/provider/auth_provider.dart';
+import 'package:bkashclone/feature/auth/ui/otp_verify_screen.dart';
+import 'package:bkashclone/feature/auth/widget/bkash_logo.dart';
+import 'package:bkashclone/feature/auth/widget/bottom_button.dart';
+import 'package:bkashclone/feature/auth/widget/row_text.dart';
+import 'package:bkashclone/feature/auth/widget/top_buttom.dart';
 import 'package:bkashclone/l10n/l10n.dart';
-import 'package:bkashclone/shared/widgets/language_change_button.dart';
 import 'package:bkashclone/shared/widgets/show_custom_snack_bar.dart';
 import 'package:bkashclone/shared/widgets/text_widget_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class PhoneNumberSetScreen extends ConsumerStatefulWidget {
@@ -40,6 +42,7 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
         statusBarIconBrightness: Brightness.light,
       ),
       child: Scaffold(
+        backgroundColor: ThemeColors.surface,
         body: SafeArea(
           top: false,
           child: Column(
@@ -49,69 +52,35 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
                 child: Column(
                   children: [
                     SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: .spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            context.pop();
-                          },
-                          child: SvgPicture.asset(
-                            SvgAssets.arrowBack,
-                            width: 30,
-                            height: 30,
-                            colorFilter: .mode(ThemeColors.primary, .srcATop),
-                          ),
-                        ),
-                        LanguageChangeButton(),
-                      ],
-                    ),
+                    TopButton(),
                     SizedBox(height: 40),
-                    Row(
-                      children: [
-                        SvgPicture.asset(
-                          SvgAssets.bkashLogo,
-                          width: 50,
-                          height: 50,
-                          colorFilter: .mode(ThemeColors.primary, .srcIn),
-                        ),
-                      ],
-                    ),
+                    BkashLogo(),
                     SizedBox(height: 40),
-                    Row(
-                      children: [
-                        TextWidgetSwitcher(
-                          l10n.enter_mobile_number,
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 20,
-                            fontWeight: .w500,
-                          ),
-                        ),
-                      ],
+                    RowText(
+                      l10n.enter_mobile_number,
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 20,
+                        fontWeight: .w500,
+                      ),
                     ),
+
                     SizedBox(height: 10),
-                    Row(
-                      children: [
-                        TextWidgetSwitcher(
-                          l10n.login,
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 24,
-                            fontWeight: .w500,
-                          ),
-                        ),
-                      ],
+                    RowText(
+                      l10n.login,
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 24,
+                        fontWeight: .w500,
+                      ),
                     ),
+
                     SizedBox(height: 5),
-                    Row(
-                      children: [
-                        Text(
-                          l10n.country_code,
-                          style: TextStyle(fontSize: 15, fontWeight: .w500),
-                        ),
-                      ],
+                    RowText(
+                      l10n.country_code,
+                      style: TextStyle(fontSize: 15, fontWeight: .w500),
                     ),
+
                     SizedBox(height: 6),
                     Container(
                       padding: EdgeInsets.all(3),
@@ -144,45 +113,50 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Row(
-                      children: [
-                        TextWidgetSwitcher(
-                          l10n.mobile_number,
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
-                    ),
+                    RowText(l10n.mobile_number, style: TextStyle(fontSize: 15)),
+
                     SizedBox(height: 20),
                     _textField(
                       controller: textController,
                       key: textKey,
                       onChanged: (value) {
-                        if (stateFun.isValid01Number(value)) {
+                        if (stateFun.isValid0Number(value)) {
                           textController.clear();
                           ShowCustomSnackBar.top(
                             context,
-                            message: l10n.enter_number_starting_with,
+                            message: l10n.enter_number_starting_with0,
+                          );
+                        }
+                        if (stateFun.isValid1Number(value)) {
+                          textController.text = "0";
+                          ShowCustomSnackBar.top(
+                            context,
+                            message: l10n.enter_number_starting_with01,
+                          );
+                        }
+                        if (stateFun.isValid3Number(value)) {
+                          textController.text = "01";
+                          ShowCustomSnackBar.top(
+                            context,
+                            message: l10n.enter_number_starting_with013,
                           );
                         }
 
                         if (!stateFun.isValidCheckLength(value)) {
-                          stateFun.isNumberValidUpdate(true);
+                          if (value.length == 11) {
+                            stateFun.isNumberValidUpdate(true);
+                          }
                         }
                         if (stateFun.isValidCheckLength(value)) {
-                          stateFun.isNumberValidUpdate(false);
+                          if (value.length < 11) {
+                            stateFun.isNumberValidUpdate(false);
+                          }
                         }
                       },
                     ),
-                    Row(
-                      children: [
-                        TextWidgetSwitcher(
-                          "${l10n.terms_and_conditions_agreement} !",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ],
+                    RowText(
+                      "${l10n.terms_and_conditions_agreement} !",
+                      style: TextStyle(fontSize: 15, color: Colors.grey[600]),
                     ),
                   ],
                 ),
@@ -191,37 +165,12 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
                 child: Column(
                   mainAxisAlignment: .end,
                   children: [
-                    Container(
-                      clipBehavior: .hardEdge,
-                      padding: const EdgeInsets.all(10),
-                      height: 60,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: stateRef.isNumberValid
-                            ? ThemeColors.primary
-                            : ThemeColors.secondary,
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.elliptical(10, 10),
-                          topLeft: Radius.elliptical(10, 10),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: .spaceBetween,
-                        crossAxisAlignment: .center,
-                        children: [
-                          TextWidgetSwitcher(
-                            l10n.next,
-                            style: TextStyle(fontSize: 17, fontWeight: .w600),
-                          ),
-                          GestureDetector(
-                            child: SvgPicture.asset(
-                              SvgAssets.arrowRight,
-                              width: 27,
-                              height: 27,
-                            ),
-                          ),
-                        ],
-                      ),
+                    BottomButton(
+                      isEnabled: stateRef.isNumberValid,
+                      onTap: () {
+                        stateFun.numberUpdate(textController.text);
+                        context.push(OtpVerifyScreen.path);
+                      },
                     ),
                   ],
                 ),
@@ -238,6 +187,7 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
   @override
   void dispose() {
     textController.dispose();
+
     super.dispose();
   }
 }

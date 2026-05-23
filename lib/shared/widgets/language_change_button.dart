@@ -12,39 +12,25 @@ class LanguageChangeButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final languageRef = ref.watch(settingProviderProvider);
-    return Container(
-      height: 35,
-      width: 90,
-      decoration: BoxDecoration(
-        color: ThemeColors.surface,
-        borderRadius: BorderRadius.all(Radius.elliptical(4, 4)),
-        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
-      ),
-      padding: EdgeInsets.all(1),
+    final languageFun = ref.watch(settingProviderProvider.notifier);
+    return SizedBox(
+      height: 30,
+      width: 80,
+
       child: Row(
-        children: List.generate(2, (index) {
-          return Expanded(
+        children: [
+          Expanded(
             child: GestureDetector(
               onTap: () {
-                if (index == 1) {
-                  ref
-                      .read(settingProviderProvider.notifier)
-                      .localeChange(languageName[1]);
-                } else {
-                  ref
-                      .read(settingProviderProvider.notifier)
-                      .localeChange(languageName[0]);
-                }
+                languageFun.localeChange(languageName[0]);
               },
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 300),
+                duration: Duration(milliseconds: 200),
                 margin: EdgeInsets.all(0.5),
                 height: double.infinity,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color:
-                        languageRef.locale.languageCode ==
-                            languageName[index].trim()
+                    color: languageRef.localeCode == languageName[0]
                         ? ThemeColors.primary
                         : Colors.transparent,
                     width: 2,
@@ -53,13 +39,11 @@ class LanguageChangeButton extends ConsumerWidget {
                 ),
                 child: Center(
                   child: Text(
-                    name[index],
+                    name[0],
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: .w600,
-                      color:
-                          languageRef.locale ==
-                              Locale(languageName[index].trim())
+                      color: languageRef.localeCode == languageName[0]
                           ? ThemeColors.primary
                           : ThemeColors.secondary,
                     ),
@@ -67,8 +51,41 @@ class LanguageChangeButton extends ConsumerWidget {
                 ),
               ),
             ),
-          );
-        }),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                languageFun.localeChange(languageName[1]);
+              },
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 200),
+                margin: EdgeInsets.all(0.5),
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: languageRef.localeCode == languageName[1]
+                        ? ThemeColors.primary
+                        : Colors.transparent,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.elliptical(3.5, 3.5)),
+                ),
+                child: Center(
+                  child: Text(
+                    name[1],
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: .w600,
+                      color: languageRef.localeCode == languageName[1]
+                          ? ThemeColors.primary
+                          : ThemeColors.secondary,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

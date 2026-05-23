@@ -53,5 +53,12 @@
   "otp_sent": "OTP পাঠানো হয়েছে",
   "phone_verification": "ফোন যাচাই",
   "resend_otp": "OTP আবার পাঠান",
-  "enter_number_starting_with": "01 দিয়ে শুরু করা নাম্বার দিন"
+  "enter_number_starting_with0": "0 দিয়ে শুরু করা নাম্বার দিন",
+  "enter_number_starting_with01": "01 দিয়ে শুরু করা নাম্বার দিন",
+  "enter_number_starting_with013": "01[3-9] দিয়ে শুরু করা নাম্বার দিন",
+  "verification_code_sent": "ভেরিফিকেশন কোড পাঠানো হয়েছে",
+  "verification": "ভেরিফিকেশন কোড",
+  "your_mobile_number": "আপনার মোবাইল নম্বর",
+  "verify": "ভেরিফাই",
+  "change": "পরিবর্তন"
 }

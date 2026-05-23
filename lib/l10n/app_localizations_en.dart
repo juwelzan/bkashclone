@@ -169,5 +169,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resend_otp => 'Resend OTP';
 
   @override
-  String get enter_number_starting_with => 'Enter a number starting with 01';
+  String get enter_number_starting_with0 => 'Enter a number starting with 0';
+
+  @override
+  String get enter_number_starting_with01 => 'Enter a number starting with 01';
+
+  @override
+  String get enter_number_starting_with013 =>
+      'Enter a number starting with 01[3-9]';
+
+  @override
+  String get verification_code_sent => 'Verification code has been sent';
+
+  @override
+  String get verification => 'Verification code';
+
+  @override
+  String get your_mobile_number => 'Your mobile number';
+
+  @override
+  String get verify => 'Verify';
+
+  @override
+  String get change => 'Change';
 }

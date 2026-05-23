@@ -1,9 +1,10 @@
 import 'package:bkashclone/core/theme/theme_colors.dart';
+import 'package:bkashclone/feature/auth/ui/phone_number_set_screen.dart';
 import 'package:bkashclone/l10n/l10n.dart';
 import 'package:bkashclone/shared/widgets/bkash_button.dart';
-import 'package:bkashclone/shared/widgets/show_custom_snack_bar.dart';
 import 'package:bkashclone/shared/widgets/text_widget_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomUserLoginBar extends StatelessWidget {
   const BottomUserLoginBar({super.key});
@@ -39,8 +40,7 @@ class BottomUserLoginBar extends StatelessWidget {
               width: double.infinity,
               child: BkashButton(
                 onTap: () {
-                  // context.push(PhoneNumberSetScreen.path);
-                  ShowCustomSnackBar.top(context);
+                  context.push(PhoneNumberSetScreen.path);
                 },
                 width: double.infinity,
                 color: ThemeColors.surface,

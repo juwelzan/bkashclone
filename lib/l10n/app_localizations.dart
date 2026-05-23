@@ -416,11 +416,53 @@ abstract class AppLocalizations {
   /// **'Resend OTP'**
   String get resend_otp;
 
-  /// No description provided for @enter_number_starting_with.
+  /// No description provided for @enter_number_starting_with0.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a number starting with 0'**
+  String get enter_number_starting_with0;
+
+  /// No description provided for @enter_number_starting_with01.
   ///
   /// In en, this message translates to:
   /// **'Enter a number starting with 01'**
-  String get enter_number_starting_with;
+  String get enter_number_starting_with01;
+
+  /// No description provided for @enter_number_starting_with013.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a number starting with 01[3-9]'**
+  String get enter_number_starting_with013;
+
+  /// No description provided for @verification_code_sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code has been sent'**
+  String get verification_code_sent;
+
+  /// No description provided for @verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code'**
+  String get verification;
+
+  /// No description provided for @your_mobile_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Your mobile number'**
+  String get your_mobile_number;
+
+  /// No description provided for @verify.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verify;
+
+  /// No description provided for @change.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get change;
 }
 
 class _AppLocalizationsDelegate

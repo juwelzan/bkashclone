@@ -169,5 +169,27 @@ class AppLocalizationsBn extends AppLocalizations {
   String get resend_otp => 'OTP আবার পাঠান';
 
   @override
-  String get enter_number_starting_with => '01 দিয়ে শুরু করা নাম্বার দিন';
+  String get enter_number_starting_with0 => '0 দিয়ে শুরু করা নাম্বার দিন';
+
+  @override
+  String get enter_number_starting_with01 => '01 দিয়ে শুরু করা নাম্বার দিন';
+
+  @override
+  String get enter_number_starting_with013 =>
+      '01[3-9] দিয়ে শুরু করা নাম্বার দিন';
+
+  @override
+  String get verification_code_sent => 'ভেরিফিকেশন কোড পাঠানো হয়েছে';
+
+  @override
+  String get verification => 'ভেরিফিকেশন কোড';
+
+  @override
+  String get your_mobile_number => 'আপনার মোবাইল নম্বর';
+
+  @override
+  String get verify => 'ভেরিফাই';
+
+  @override
+  String get change => 'পরিবর্তন';
 }

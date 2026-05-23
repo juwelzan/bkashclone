@@ -8,6 +8,7 @@ part 'setting_provider.g.dart';
 
 @riverpod
 class SettingProvider extends _$SettingProvider {
+  SettingProvider();
   @override
   SettingState build() {
     checkIn();
@@ -15,7 +16,7 @@ class SettingProvider extends _$SettingProvider {
   }
 
   void localeChange(String code) {
-    state = state.copyWith(locale: Locale(code.trim()));
+    state = state.copyWith(localeCode: code);
     _sharedUpdate(local: code.trim());
   }
 
@@ -25,20 +26,19 @@ class SettingProvider extends _$SettingProvider {
   }
 
   Future<void> checkIn() async {
-    debugPrint("checkIn called");
     final shared = await sharedPreferences(ref);
 
     final local = shared.getString(AppKey.language);
     final theme = shared.getString(AppKey.themeMode);
     if (local != null) {
-      state = state.copyWith(locale: Locale(local));
+      state = state.copyWith(localeCode: local);
     } else {
       shared.setString(AppKey.language, "bn");
     }
     if (theme != null) {
       state = state.copyWith(themeMode: __themeMode(theme));
     } else {
-      shared.setString(AppKey.language, ThemeMode.system.toString());
+      shared.setString(AppKey.themeMode, ThemeMode.system.toString());
     }
   }
 
