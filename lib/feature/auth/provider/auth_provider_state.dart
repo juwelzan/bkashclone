@@ -22,7 +22,7 @@ class AuthProviderState {
     return AuthProviderState(
       isNumberValid: isNumberValid ?? this.isNumberValid,
       isOtpValid: isOtpValid ?? this.isOtpValid,
-      isPasswordValid: isPasswordValid ?? this.isNumberValid,
+      isPasswordValid: isPasswordValid ?? this.isPasswordValid,
       number: number ?? this.number,
       otp: otp ?? this.otp,
     );

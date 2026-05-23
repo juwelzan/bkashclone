@@ -32,6 +32,7 @@ class _OtpVerifyScreenState extends ConsumerState<OtpVerifyScreen> {
     controller.text = stateRef.otp;
     final stateFun = ref.watch(authProviderProvider.notifier);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: ThemeColors.surface,
       body: SafeArea(
         child: Column(

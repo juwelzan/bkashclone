@@ -220,6 +220,7 @@ Widget _textField({
             const SizedBox(width: 10),
             Expanded(
               child: TextFormField(
+                autofocus: true,
                 focusNode: focusNode,
                 maxLength: 11,
                 cursorColor: ThemeColors.primary,

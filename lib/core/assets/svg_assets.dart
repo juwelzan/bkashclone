@@ -11,4 +11,6 @@ class SvgAssets {
   static const String adslider = 'assets/svg/adslider.svg';
   static const String arrowBack = 'assets/svg/arrow-small-left.svg';
   static const String arrowRight = 'assets/svg/arrow-small-right.svg';
+  static const String qrCode = 'assets/svg/qr.svg';
+  static const String fingerprint = 'assets/svg/fingerprint-identification.svg';
 }
