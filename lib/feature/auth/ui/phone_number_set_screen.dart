@@ -117,6 +117,7 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
 
                     SizedBox(height: 20),
                     _textField(
+                      focusNode: focusNode,
                       controller: textController,
                       key: textKey,
                       onChanged: (value) {
@@ -167,7 +168,7 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
                   children: [
                     BottomButton(
                       isEnabled: stateRef.isNumberValid,
-                      onTap: () {
+                      onTap: () async {
                         stateFun.numberUpdate(textController.text);
                         context.push(OtpVerifyScreen.path);
                       },
@@ -182,10 +183,12 @@ class _PhoneNumberSetScreenState extends ConsumerState<PhoneNumberSetScreen> {
     );
   }
 
-  final textController = TextEditingController();
+  final TextEditingController textController = TextEditingController();
   final textKey = GlobalKey<FormState>();
+  final FocusNode focusNode = FocusNode();
   @override
   void dispose() {
+    focusNode.dispose();
     textController.dispose();
 
     super.dispose();
@@ -197,6 +200,7 @@ Widget _textField({
   TextEditingController? controller,
   Function(String value)? onChanged,
   String? Function(String? value)? validator,
+  FocusNode? focusNode,
 }) {
   return Form(
     key: key,
@@ -216,6 +220,7 @@ Widget _textField({
             const SizedBox(width: 10),
             Expanded(
               child: TextFormField(
+                focusNode: focusNode,
                 maxLength: 11,
                 cursorColor: ThemeColors.primary,
                 cursorWidth: 4,

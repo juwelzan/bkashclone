@@ -194,7 +194,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get change => 'পরিবর্তন';
 
   @override
-  String get login_to_bkash_account => 'আপনার বিকাশ অ্যাকাউন্টে | লগ ইন করুন';
+  String get login_to_bkash_account => 'আপনার বিকাশ অ্যাকাউন্টে |লগ ইন করুন';
 
   @override
   String get account_number => 'অ্যাকাউন্ট নাম্বার';
