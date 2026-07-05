@@ -42,14 +42,16 @@ dependencies:
   riverpod: ^3.2.1
   riverpod_annotation: ^4.0.2
   shared_preferences: ^2.5.5
+  pinput: ^6.0.2
+  flutter_assets_pkg: ^0.0.2
 
 dev_dependencies:
   build_runner: ^2.15.0
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-  pinput: ^6.0.2
-  riverpod_generator: ^4.0.3
+  
+  riverpod_generator: ^4.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

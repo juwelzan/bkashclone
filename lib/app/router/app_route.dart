@@ -1,13 +1,14 @@
 import 'package:bkashclone/feature/auth/ui/otp_verify_screen.dart';
 import 'package:bkashclone/feature/auth/ui/password_screen.dart';
 import 'package:bkashclone/feature/auth/ui/phone_number_set_screen.dart';
+import 'package:bkashclone/feature/home/ui/home_screen.dart';
 import 'package:bkashclone/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:bkashclone/feature/splash/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: "/",
+  initialLocation: HomeScreen.path,
 
   routes: [
     slideTransition(
@@ -29,6 +30,11 @@ GoRouter router = GoRouter(
       page: PasswordScreen(),
       path: PasswordScreen.path,
       name: PasswordScreen.name,
+    ),
+    slideTransition(
+      page: HomeScreen(),
+      path: HomeScreen.path,
+      name: HomeScreen.name,
     ),
     slideTransition(page: SplashScreen(), path: "/", name: "SplashScreen"),
   ],
